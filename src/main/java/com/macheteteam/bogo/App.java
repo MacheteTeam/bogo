@@ -1,4 +1,4 @@
-package com.macheteteam;
+package com.macheteteam.bogo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
