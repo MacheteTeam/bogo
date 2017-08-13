@@ -12,55 +12,53 @@ import org.springframework.stereotype.Component;
 @Component(value = "configHelp")
 @PropertySource("classpath:config.properties")
 public class ConfigHelp {
-    @Value("${jsch.host:@null}")
-    private String jschHost;
+    public static String jschHost;
 
-    @Value("${jsch.port:22}")
-    private int jschPort = Constants.DEFAULTSSHPORY;
+    public static int jschPort = Constants.DEFAULTSSHPORY;
 
-    @Value("${jsch.user:@null}")
-    private String jschUser;
+    public static String jschUser;
 
-    @Value("${jsch.password:@null}")
-    private String jschPassword;
+    public static String jschPassword;
 
     //是否使用私钥验证
-    @Value("${jsch.privateKey:@null}")
-    private boolean jschIsUsePrivateKey = false;
+    public static boolean jschIsUsePrivateKey = false;
 
     //私钥路径
-    @Value("${jsch.privateKeyPath:@null}")
-    private String jschPrivateKeyPath = Constants.DEFAULTPRIKEY;
+    public static String jschPrivateKeyPath = Constants.DEFAULTPRIKEY;
 
     //客户端私钥加密密码
+    public static String jschPrivateKeyPass = "";
+
+    @Value("${jsch.host:@null}")
+    public void setJschHost(String jschHost) {
+        ConfigHelp.jschHost = jschHost;
+    }
+
+    @Value("${jsch.port:22}")
+
+    public void setJschPort(int jschPort) {
+        ConfigHelp.jschPort = jschPort;
+    }
+    @Value("${jsch.user:@null}")
+
+    public void setJschUser(String jschUser) {
+        ConfigHelp.jschUser = jschUser;
+    }
+    @Value("${jsch.password:@null}")
+
+    public void setJschPassword(String jschPassword) {
+        ConfigHelp.jschPassword = jschPassword;
+    }
+    @Value("${jsch.privateKey:@null}")
+    public void setJschIsUsePrivateKey(boolean jschIsUsePrivateKey) {
+        ConfigHelp.jschIsUsePrivateKey = jschIsUsePrivateKey;
+    }
+    @Value("${jsch.privateKeyPath:@null}")
+    public void setJschPrivateKeyPath(String jschPrivateKeyPath) {
+        ConfigHelp.jschPrivateKeyPath = jschPrivateKeyPath;
+    }
     @Value("${jsch.privateKeyPass:@null}")
-    private String jschPrivateKeyPass = "";
-
-    public String getJschHost() {
-        return jschHost;
-    }
-
-    public int getJschPort() {
-        return jschPort;
-    }
-
-    public String getJschUser() {
-        return jschUser;
-    }
-
-    public String getJschPassword() {
-        return jschPassword;
-    }
-
-    public boolean getJschIsUsePrivateKey() {
-        return jschIsUsePrivateKey;
-    }
-
-    public String getJschPrivateKeyPath() {
-        return jschPrivateKeyPath;
-    }
-
-    public String getJschPrivateKeyPass() {
-        return jschPrivateKeyPass;
+    public void setJschPrivateKeyPass(String jschPrivateKeyPass) {
+        ConfigHelp.jschPrivateKeyPass = jschPrivateKeyPass;
     }
 }
